@@ -1,0 +1,41 @@
+{
+  "name": "jsdig",
+  "version": "0.0.1",
+  "description": "Based on Ruby's hash#dig",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "test:prod": "cross-env BABEL_ENV=production npm run test",
+    "build": "BABEL_ENV=production babel src --out-dir lib",
+    "prepublish": "npm run test && npm run build"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devchris/jsdig.git"
+  },
+  "keywords": [
+    "javascript",
+    "ruby",
+    "dig",
+    "hash"
+  ],
+  "author": "Christoph Drechsler <christoph@planubo.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/devchris/jsdig#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
+  }
+}

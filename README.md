@@ -1,0 +1,3 @@
+# License
+
+MIT © Christoph Drechsler
