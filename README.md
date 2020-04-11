@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/devchris/jsdig.svg?branch=master)](https://travis-ci.com/devchris/jsdig)
 
-Lightweight Javascript implementation with no dependencies of Ruby's hash#dig (https://apidock.com/ruby/Hash/dig)
+Lightweight Javascript implementation of Ruby's hash#dig (https://apidock.com/ruby/Hash/dig) - no dependencies
 
 # How to install it
 
