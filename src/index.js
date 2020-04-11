@@ -12,6 +12,6 @@ Object.defineProperty(Object.prototype, 'dig', {
       digest = digest[keys[i]];
     }
 
-    return digest ? digest : null;
+    return digest || null;
   }
 });
