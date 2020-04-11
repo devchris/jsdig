@@ -67,4 +67,21 @@ describe('Dig', () => {
 
     assert(testObject.dig('other', 'more', 0, 'wrong', 'first', 'value') === null);
   })
+
+  it('edge case, will still return null if key does not exist on last iteration', () => {
+    const testObject = {
+      other: {
+        more: [{
+          name: 'Christoph',
+          labels: {
+            first: {
+              value: '123'
+            }
+          }
+        }]
+      }
+    };
+
+    assert(testObject.dig('other', 'more', 0, 0) === null);
+  })
 });
