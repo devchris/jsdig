@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/devchris/jsdig.svg?branch=master)](https://travis-ci.com/devchris/jsdig)
+![Build](https://github.com/devchris/jsdig/workflows/Build/badge.svg)
 
 Lightweight Javascript implementation of Ruby's hash#dig (https://apidock.com/ruby/Hash/dig) - no dependencies
 
