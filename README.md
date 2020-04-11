@@ -18,13 +18,17 @@ After installing, import it in your project with:
 
 ```
 import 'jsdig';
+
+OR
+
+require('jsdig');
 ```
 
 # How to use it
 
 1. With an Object:
 
-```
+```js
 const world = {
   locations: {
     europe: 'Bamberg',
@@ -33,12 +37,13 @@ const world = {
 }
 ```
 
-```
-world.dig('locations', 'usa') === 'Indianapolis';
+```js
+world.dig('locations', 'usa');
+// => 'Indianapolis'
 ```
 
 2. With an Array:
-```
+```js
 const world = {
   locations: [{
     europe: 'Bamberg',
@@ -48,8 +53,9 @@ const world = {
 }
 ```
 
-```
-world.dig('locations', 0, 'europe') === 'Bamberg';
+```js
+world.dig('locations', 0, 'europe');
+// => 'Bamberg'
 ```
 
 3. If it can't find the value, it will return null.
