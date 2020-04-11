@@ -1,15 +1,11 @@
 import { assert } from 'chai';
-import Dig from '../src';
+import '../src/index';
 
 describe('Dig', () => {
-  it('returns null if passed in value is not an object or array', () => {
-    assert(Dig('', 'name') === null);
-  });
-
   it('returns the wanted value from an object', () => {
     const testObject = { name: 'Christoph', label: 'C' };
 
-    assert(Dig(testObject, 'name') === 'Christoph');
+    assert(testObject.dig('name') === 'Christoph');
   })
 
   it('returns the wanted value from a nested object', () => {
@@ -22,7 +18,7 @@ describe('Dig', () => {
       }
     };
 
-    assert(Dig(testObject, 'labels', 'first', 'value') === '123');
+    assert(testObject.dig('labels', 'first', 'value') === '123');
   })
 
   it('returns the wanted value from a nested object inside an array', () => {
@@ -35,7 +31,7 @@ describe('Dig', () => {
       }
     }];
 
-    assert(Dig(testObject, 0, 'labels', 'first', 'value') === '123');
+    assert(testObject.dig(0, 'labels', 'first', 'value') === '123');
   })
 
   it('returns the wanted value from a nested object inside an array of an object', () => {
@@ -52,7 +48,7 @@ describe('Dig', () => {
       }
     };
 
-    assert(Dig(testObject, 'other', 'more', 0, 'labels', 'first', 'value') === '123');
+    assert(testObject.dig('other', 'more', 0, 'labels', 'first', 'value') === '123');
   })
 
   it('will return null if key does not exist', () => {
@@ -69,6 +65,6 @@ describe('Dig', () => {
       }
     };
 
-    assert(Dig(testObject, 'other', 'more', 0, 'wrong', 'first', 'value') === null);
+    assert(testObject.dig('other', 'more', 0, 'wrong', 'first', 'value') === null);
   })
 });
