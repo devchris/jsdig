@@ -1,17 +1,17 @@
-const Dig = (obj, ...keys) => {
-  if (typeof obj !== 'object' || obj === null) return null;
+Object.defineProperty(Object.prototype, 'dig', {
+  value(...keys) {
+    const obj = Object(this);
 
-  let digest = obj;
+    let digest = obj;
 
-  for (let i = 0, len = keys.length; i < len; i++) {
-    if (typeof digest === 'undefined' || digest === null) {
-      return null;
+    for (let i = 0, len = keys.length; i < len; i++) {
+      if (typeof digest === 'undefined' || digest === null) {
+        return null;
+      }
+
+      digest = digest[keys[i]];
     }
 
-    digest = digest[keys[i]];
+    return digest;
   }
-
-  return digest;
-};
-
-export default Dig;
+});

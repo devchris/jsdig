@@ -15,9 +15,8 @@ yarn add jsdig
 After installing, import it in your project with:
 
 ```
-import dig from 'jsdig';
+import 'jsdig';
 ```
-
 
 # How to use it
 
@@ -33,7 +32,7 @@ const world = {
 ```
 
 ```
-jsdig(world, 'locations', 'usa') === 'Indianapolis';
+world.dig('locations', 'usa') === 'Indianapolis';
 ```
 
 2. With an Array:
@@ -48,7 +47,7 @@ const world = {
 ```
 
 ```
-jsdig(world, 'locations', 0, 'europe') === 'Bamberg';
+world.dig('locations', 0, 'europe') === 'Bamberg';
 ```
 
 3. If it can't find the value, it will return null.
