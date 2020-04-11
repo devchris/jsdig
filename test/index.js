@@ -84,4 +84,22 @@ describe('Dig', () => {
 
     assert(testObject.dig('other', 'more', 0, 0) === null);
   })
+
+  it('returns null from an array if not present', () => {
+    const testArray = [0, 1, 2, 3];
+
+    assert(testArray.dig(0, 0) === null);
+  });
+
+  it('returns value from an array of integers if present', () => {
+    const testArray = [0, 1, 2, 3];
+
+    assert(testArray.dig(1) === 1);
+  });
+
+  it('returns value from an array with objects if present', () => {
+    const testArray = [0, 1, { location: { europe: 'Bamberg' } }, 3];
+
+    assert(testArray.dig(2, 'location', 'europe') === 'Bamberg');
+  });
 });
