@@ -1,6 +1,6 @@
 {
   "name": "jsdig",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Based on Ruby's hash#dig",
   "main": "./lib/index.js",
   "scripts": {
