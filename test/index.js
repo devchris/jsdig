@@ -102,4 +102,12 @@ describe('Dig', () => {
 
     assert(testArray.dig(2, 'location', 'europe') === 'Bamberg');
   });
+
+  it('returns a character from an array with objects if present', () => {
+    const testArray = [0, 1, { location: { europe: 'Bamberg' } }, 3];
+
+    assert(testArray.dig(2, 'location', 'europe', 0) === 'B');
+    assert(testArray.dig(2, 'location', 'europe', 1) === 'a');
+    assert(testArray.dig(2, 'location', 'europe', 2) === 'm');
+  });
 });
