@@ -26,7 +26,7 @@ require('jsdig');
 
 # How to use it
 
-1. With an Object:
+- With an Object:
 
 ```js
 const world = {
@@ -34,7 +34,7 @@ const world = {
     europe: 'Bamberg',
     usa: 'Indianapolis'
   }
-}
+};
 ```
 
 ```js
@@ -42,7 +42,7 @@ world.dig('locations', 'usa');
 // => 'Indianapolis'
 ```
 
-2. With an Array:
+- With an Array:
 ```js
 const world = {
   locations: [{
@@ -50,7 +50,7 @@ const world = {
   }, {
     usa: 'Indianapolis'
   }]
-}
+};
 ```
 
 ```js
@@ -58,7 +58,15 @@ world.dig('locations', 0, 'europe');
 // => 'Bamberg'
 ```
 
-3. If it can't find the value, it will return null.
+- It can also call a function inside a nested object, or in an array, or in both:
+```js
+const germany = () => 'germany';
+const world = [0, 1, { location: { europe: germany } }, 3];
+world.dig(2, 'location', 'europe') === germany;
+world.dig(2, 'location', 'europe')() === 'germany';
+```
+
+- If it can't find the value, it will return null.
 
 
 # License

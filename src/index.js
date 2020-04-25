@@ -1,14 +1,9 @@
 Object.defineProperty(Object.prototype, 'dig', {
   value(...keys) {
-    const obj = Object(this);
-
-    let digest = obj;
+    let digest = Object(this);
 
     for (let i = 0, len = keys.length; i < len; i++) {
-      if (typeof digest === 'undefined' || digest === null) {
-        return null;
-      }
-
+      if (!digest) return null;
       digest = digest[keys[i]];
     }
 

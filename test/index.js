@@ -110,4 +110,21 @@ describe('Dig', () => {
     assert(testArray.dig(2, 'location', 'europe', 1) === 'a');
     assert(testArray.dig(2, 'location', 'europe', 2) === 'm');
   });
+
+  it('gets a function and calls is', () => {
+    const germany = () => 'germany';
+    const world = [0, 1, { location: { europe: germany } }, 3];
+    assert(world.dig(2, 'location', 'europe') === germany);
+    assert(world.dig(2, 'location', 'europe')() === 'germany');
+  });
+
+  it('even works with strings but who would ever do this', () => {
+    assert('Sesame'.dig(3) === 'a');
+    assert('Sesame'.dig(3, 4) === null);
+  });
+
+  it('does not work with numbers', () => {
+    const id = 92394;
+    assert(id.dig(2) === null);
+  });
 });

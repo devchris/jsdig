@@ -1,6 +1,6 @@
 {
   "name": "jsdig",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Based on Ruby's hash#dig",
   "main": "./lib/index.js",
   "scripts": {
@@ -20,7 +20,11 @@
     "javascript",
     "ruby",
     "dig",
-    "hash"
+    "hash",
+    "optional",
+    "chaining",
+    "safe",
+    "navigation"
   ],
   "author": "Christoph Drechsler <christoph@planubo.com>",
   "license": "MIT",
