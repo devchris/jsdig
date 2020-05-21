@@ -68,6 +68,40 @@ describe('Dig', () => {
     assert(testObject.dig('other', 'more', 0, 'wrong', 'first', 'value') === null);
   })
 
+  it('will return an empty array if passed in as default value', () => {
+    const testObject = {
+      other: {
+        more: {
+          name: 'Christoph',
+          labels: {
+            first: {
+              value: '123'
+            }
+          }
+        }
+      }
+    };
+
+    assert(JSON.stringify(testObject.dig('other', 'more', 'wrong', 'first', { default: []})) === JSON.stringify([]));
+  })
+
+  it('will return a string if passed in as default value', () => {
+    const testObject = {
+      other: {
+        more: {
+          name: 'Christoph',
+          labels: {
+            first: {
+              value: '123'
+            }
+          }
+        }
+      }
+    };
+
+    assert(testObject.dig('other', 'more', 'wrong', 'first', { default: 'not found' }) === 'not found');
+  })
+
   it('edge case, will still return null if key does not exist on last iteration', () => {
     const testObject = {
       other: {

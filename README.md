@@ -66,7 +66,31 @@ world.dig(2, 'location', 'europe') === germany;
 world.dig(2, 'location', 'europe')() === 'germany';
 ```
 
-- If it can't find the value, it will return null.
+- If it can't find the value, it will return null by default. However, you can also pass in a default value of what should be returned if it isn't found.
+```js
+const world = {
+  locations: [{
+    europe: 'Bamberg',
+  }, {
+    usa: 'Indianapolis'
+  }]
+};
+```
+
+```js
+world.dig('locations', 0, 'europe', 'germany', { default: [] });
+// => []
+```
+
+```js
+world.dig('locations', 0, 'europe', 'germany', { default: 'not found' });
+// => 'not found'
+```
+
+```js
+world.dig('locations', 0, 'europe', 'germany', { default: '' });
+// => ''
+```
 
 
 # License
