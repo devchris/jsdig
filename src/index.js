@@ -3,6 +3,8 @@ Object.defineProperty(Object.prototype, 'dig', {
     let digest = Object(this);
     let d = null;
 
+    if(Array.isArray(keys) && keys.length === 0) return digest;
+
     if (keys[keys.length - 1].hasOwnProperty('default')) {
       d = keys[keys.length - 1].default;
       keys.splice(-1, 1);
