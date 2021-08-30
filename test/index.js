@@ -68,6 +68,26 @@ describe('Dig', () => {
     assert(testObject.dig('other', 'more', 0, 'wrong', 'first', 'value') === null);
   })
 
+  it('will return the object if keys are not supplied', () => {
+    const testObject = {
+      other: {
+        name: 'Christoph'
+      }
+    };
+
+    assert(testObject.dig() === testObject);
+  });
+
+  it('will return the object if passed in as default value when keys are not supplied', () => {
+    const testObject = {
+      other: {
+        name: 'Christoph'
+      }
+    };
+
+    assert(testObject.dig(...[], {default: testObject}) === testObject);
+  });
+
   it('will return an empty array if passed in as default value', () => {
     const testObject = {
       other: {
